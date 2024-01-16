@@ -1,4 +1,7 @@
-html, html body {
+html, html * {
   margin: 0px;
   padding: 0px;
+}
+html * {
+  font-family: monospace;
 }/*# sourceMappingURL=style.css.map */

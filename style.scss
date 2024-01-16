@@ -2,7 +2,8 @@ html {
     margin: 0px;
     padding: 0px;
 
-    body {
-        @extend html;
+    * { 
+        @extend html; 
+        font-family: monospace;
     }
 }
