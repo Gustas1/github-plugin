@@ -4,12 +4,16 @@ document.getElementById('paddingInput').addEventListener('keyup', function() {
     changePad(paddingNumber)
 });
 
+const toggleButton = document.getElementById('toggleButton');
 let togNum = 0;
 function togglePad() { 
     if (togNum % 2 == 0) {
         changePad(paddingNumber);
+        toggleButton.classList.toggle('btnClassActive');
+
     } else {
         returnToNormal();
+        toggleButton.classList.toggle('btnClassActive');
     }
     togNum++;
 }

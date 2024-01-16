@@ -1,7 +1,43 @@
 html, html * {
   margin: 0px;
   padding: 0px;
+  overflow: hidden;
 }
 html * {
   font-family: monospace;
+}
+
+#container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  background-color: rgb(13, 17, 23);
+}
+#container #content {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 0px 0px 0px;
+}
+#container #content * {
+  margin: 20px;
+  padding: 10px;
+}
+
+.btnClass {
+  transition: 0.25s;
+  color: white;
+  background-color: rgb(28, 32, 39);
+  border: 1px solid white;
+  border-radius: 15px;
+}
+
+.btnClass:hover {
+  background-color: rgb(46, 52, 63);
+}
+
+.btnClassActive {
+  background-color: rgb(77, 85, 98);
 }/*# sourceMappingURL=style.css.map */
