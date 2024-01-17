@@ -1,39 +1,23 @@
-let paddingNumber = 0;
-document.getElementById('paddingInput').addEventListener('keyup', function() {
-    paddingNumber = document.getElementById('paddingInput').value;
-    changePad(paddingNumber)
-});
+console.log(":P");
 
-const toggleButton = document.getElementById('toggleButton');
-let togNum = 0;
-function togglePad() { 
-    if (togNum % 2 == 0) {
-        changePad(paddingNumber);
-        toggleButton.classList.toggle('btnClassActive');
-
-    } else {
-        returnToNormal();
-        toggleButton.classList.toggle('btnClassActive');
-    }
-    togNum++;
+if(window.location.href.includes('tab?=repositories')) {
+    const test1 = document.querySelectorAll('.col-12');
+    chrome.runTime.sendMessage({message: test1})
 }
 
-const test1 = document.getElementsByClassName('col-12')
 
-function changePad(pad) {
-    for(let i = 1; i < test1.length; i++) {
-        test1[i].classList.remove('py-4');
-        test1[i].style.paddingTop = pad;
-        test1[i].style.paddingBottom = pad;
-    }
-    console.log("hi")
-}
+// function returnToNormal() {
+//     for(let i = 1; i < test1.length; i++) {
+//         test1[i].classList.add('py-4');
+//     }
+// }
 
-function returnToNormal() {
-    for(let i = 1; i < test1.length; i++) {
-        test1[i].classList.add('py-4');
-    }
-    console.log("hi2");
-}
 
-// changePad("0.5rem");
+
+// document.addEventListener('DOMContentLoaded', function(event) {
+//     write("title", "GitHub Plugin", 0, 50);
+//     document.querySelector('#help').addEventListener('click', function(e) {
+//         paddingNumber = document.getElementById('paddingInput').value;
+//         console.log("hi")
+//     });  
+// })
