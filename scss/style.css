@@ -1,7 +1,6 @@
 html, html *, html .btnSmallClass {
   margin: 0px;
   padding: 0px;
-  overflow: hidden;
 }
 html *, html .btnSmallClass {
   font-family: monospace;
@@ -13,9 +12,10 @@ html *, html .btnSmallClass {
   flex-direction: column;
   text-align: center;
   height: 400px;
-  width: 300px;
+  width: 250px;
   color: white;
-  background-color: rgb(13, 17, 23);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(0deg, rgb(2, 0, 36) 0%, rgb(61, 61, 61) 100%);
   border: 1px solid white;
 }
 #container #content {
@@ -25,23 +25,28 @@ html *, html .btnSmallClass {
   flex-grow: 5;
 }
 #container #content input {
+  transition: 0.5s;
   text-align: center;
   height: 50px;
   width: 150px;
+  margin: 0px 0px 100px 0px;
   color: white;
   background-color: rgb(28, 32, 39);
   border: 1px solid white;
   border-radius: 15px;
 }
+#container #content input:hover, #container #content input :focus {
+  background-color: rgb(46, 52, 63);
+}
 #container #content #title {
   font-size: xx-large;
   margin: 30px 0px 0px 0px;
-  border-bottom: 1px solid white;
 }
 #container #content #inner-content {
   margin: 20px 5px 0px 5px;
 }
 #container #footer {
+  font-size: larger;
   margin: 10px;
 }
 
@@ -54,8 +59,7 @@ html *, html .btnSmallClass {
   border: 1px solid white;
   border-radius: 15px;
 }
-
-.btnClassActive {
+.btnClass:active {
   background-color: rgb(77, 85, 98);
 }
 
@@ -67,7 +71,9 @@ html *, html .btnSmallClass {
   border: 1px solid white;
   border-radius: 20px;
 }
-
 .btnSmallClass:hover {
   background-color: rgb(46, 52, 63);
+}
+.btnSmallClass:active {
+  background-color: rgb(28, 32, 39);
 }/*# sourceMappingURL=style.css.map */

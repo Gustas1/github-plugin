@@ -5,13 +5,13 @@
     "version": "1.0",
     "action": {
       "default_popup": "index.html",
-      "default_icon": "githublogo.png"
+      "default_icon": "img/githublogo.png"
     },
   
-    "permissions": ["scripting", "activeTab", "tabs"],
+    "permissions": ["scripting", "activeTab", "tabs", "storage"],
     "content_scripts": [
       {
-        "js": ["script.js", "script2.js"],
+        "js": ["./js/popup.js"],
         "matches": [
           "https://github.com/*"
         ] 

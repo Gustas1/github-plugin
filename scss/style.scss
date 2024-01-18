@@ -1,10 +1,10 @@
 $bg-color: rgb(13,17,23);
 $bg-item-color: rgb(28, 32, 39);
+$bg-grad-color: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(61,61,61,1) 100%);
 
 html {
     margin: 0px;
     padding: 0px;
-    overflow: hidden;
 
     * { 
         @extend html; 
@@ -18,9 +18,10 @@ html {
     flex-direction: column;
     text-align: center;
     height: 400px;
-    width: 300px;
+    width: 250px;
     color: white;
-    background-color: $bg-color;
+    background: rgb(2,0,36);
+    background: $bg-grad-color;
     border: 1px solid white;
 
     #content {
@@ -30,19 +31,24 @@ html {
         flex-grow: 5;
 
         input {
+            transition: 0.5s;
             text-align: center;
             height: 50px;
             width: 150px;
+            margin: 0px 0px 100px 0px;
             color: white;
             background-color: $bg-item-color;
             border: 1px solid white;
             border-radius: 15px;
+
+            &:hover, :focus {
+                background-color: rgb(46, 52, 63);
+            }
         }
 
         #title {
             font-size: xx-large;
             margin: 30px 0px 0px 0px;
-            border-bottom: 1px solid white;
         }
 
         #inner-content {
@@ -51,6 +57,7 @@ html {
     }
 
     #footer {
+        font-size: larger;
         margin: 10px;
     }
 }
@@ -63,12 +70,10 @@ html {
     background-color: $bg-item-color;
     border: 1px solid white;
     border-radius: 15px;
-}
 
-
-
-.btnClassActive {
-    background-color: rgb(77, 85, 98);
+    &:active {
+        background-color: rgb(77, 85, 98);
+    }
 }
 
 .btnSmallClass {
@@ -79,8 +84,11 @@ html {
     background-color: $bg-item-color;
     border: 1px solid white;
     border-radius: 20px;
-}
 
-.btnSmallClass:hover {
-    background-color: rgb(46, 52, 63);
+    &:hover {
+        background-color: rgb(46, 52, 63);
+    }
+    &:active {
+        background-color: $bg-item-color;
+    }
 }
