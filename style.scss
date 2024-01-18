@@ -9,27 +9,25 @@ html {
     * { 
         @extend html; 
         font-family: monospace;
+        color: white;
     }
 }
 
 #container {
     display: flex;
+    flex-direction: column;
     text-align: center;
-    justify-content: center;
-    height: 300px;
-    width: 200px;
+    height: 400px;
+    width: 300px;
     color: white;
     background-color: $bg-color;
+    border: 1px solid white;
 
     #content {
         display: flex;
         place-items: center;
         flex-direction: column;
-        margin: 50px 0px 0px 0px;
-
-        * {
-            margin: 20px;
-        }
+        flex-grow: 5;
 
         input {
             text-align: center;
@@ -40,6 +38,20 @@ html {
             border: 1px solid white;
             border-radius: 15px;
         }
+
+        #title {
+            font-size: xx-large;
+            margin: 30px 0px 0px 0px;
+            border-bottom: 1px solid white;
+        }
+
+        #inner-content {
+            margin: 20px 5px 0px 5px;
+        }
+    }
+
+    #footer {
+        margin: 10px;
     }
 }
 
@@ -53,10 +65,22 @@ html {
     border-radius: 15px;
 }
 
-.btnClass:hover {
-    background-color: rgb(46, 52, 63);
-}
+
 
 .btnClassActive {
     background-color: rgb(77, 85, 98);
+}
+
+.btnSmallClass {
+    @extend *;
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    background-color: $bg-item-color;
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
+.btnSmallClass:hover {
+    background-color: rgb(46, 52, 63);
 }
