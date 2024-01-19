@@ -18,6 +18,7 @@ chrome.storage.local.get(["key"]).then((result) => {
             changePad(pd);
         }
     }
+    setTimeout(iconSwap, 200)
 });
 
 function changePad(pad) {
@@ -61,5 +62,8 @@ function iconSwap() {
     }
 }
 
-setTimeout(iconSwap, 50)
+setTimeout(iconSwap, 300)
+setTimeout(iconSwap, 400)
+
+
 
