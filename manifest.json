@@ -7,11 +7,12 @@
       "default_popup": "index.html",
       "default_icon": "img/githublogo.png"
     },
-  
+
+    "host_permissions": ["*://*/*"],
     "permissions": ["scripting", "activeTab", "tabs", "storage"],
     "content_scripts": [
       {
-        "js": ["./js/popup.js"],
+        "js": ["./js/popup.js", "./js/event.js"],
         "matches": [
           "https://github.com/*"
         ] 
@@ -20,5 +21,10 @@
 
     "background": {
       "service_worker": "background.js"
-    }
+    },
+
+    "web_accessible_resources": [{
+      "resources": ["img/*.png"],
+      "matches": ["https://github.com/*"]
+    }]
   }

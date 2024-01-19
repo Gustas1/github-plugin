@@ -12,11 +12,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
     document.querySelector('#help').addEventListener('click', function() {
         paddingNumber = document.getElementById('paddingInput').value;
         chrome.storage.local.set({ key: paddingNumber }).then(() => {
-            console.log("Value is set");
         });
         chrome.scripting.executeScript({
             target: {tabId: my_tabid},
             files: ["js/event.js"]
         })
-    });  
+    });
 }) 
