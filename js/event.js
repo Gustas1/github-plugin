@@ -34,16 +34,32 @@ function iconSwap() {
     const test1 = document.querySelectorAll('.react-directory-filename-column');
 
     const hashmapExtensions = new Map();
-    hashmapExtensions.set(1, ".html");
+    hashmapExtensions.set(1, ".c ");
     hashmapExtensions.set(2, ".js");
     hashmapExtensions.set(3, ".json");
     hashmapExtensions.set(4, ".md");
-    hashmapExtensions.set(5, ".py")
-    hashmapExtensions.set(6, ".css")
-    hashmapExtensions.set(7, ".java")
-    hashmapExtensions.set(8, ".cpp")
-    hashmapExtensions.set(9, ".scss")
-    hashmapExtensions.set(10, ".tsx")
+    hashmapExtensions.set(5, ".py");
+    hashmapExtensions.set(6, ".html");
+    hashmapExtensions.set(7, ".java");
+    hashmapExtensions.set(8, ".cpp");
+    hashmapExtensions.set(9, ".scss");
+    hashmapExtensions.set(10, ".ts");
+    hashmapExtensions.set(11, ".cs");
+    hashmapExtensions.set(12, ".ejs");
+    hashmapExtensions.set(13, ".tsx");
+    hashmapExtensions.set(14, ".cjs");
+    hashmapExtensions.set(15, "LICENSE");
+    hashmapExtensions.set(16, ".git");
+    hashmapExtensions.set(17, ".cpp");
+    hashmapExtensions.set(18, ".jar");
+    hashmapExtensions.set(19, ".prisma");
+    hashmapExtensions.set(20, ".sql");
+    hashmapExtensions.set(21, ".ipynb");
+    hashmapExtensions.set(22, ".xml");
+    hashmapExtensions.set(23, ".iml");
+    hashmapExtensions.set(23, ".rb");
+    hashmapExtensions.set(23, ".swift");
+    hashmapExtensions.set(24, ".css");
 
     for(let i = 0; i < test1.length; i++) {
         const img = document.createElement('img');
