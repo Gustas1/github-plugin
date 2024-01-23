@@ -18,33 +18,33 @@ html {
     flex-direction: column;
     text-align: center;
     height: 400px;
-    width: 250px;
+    width: 260px;
     color: white;
     background: rgb(2,0,36);
     background: $bg-grad-color;
     border: 1px solid white;
 
+    input {
+        transition: 0.5s;
+        text-align: center;
+        height: 50px;
+        width: 120px;
+        margin: 0px 0px 10px 0px;
+        color: white;
+        background-color: $bg-item-color;
+        border: 1px solid white;
+        border-radius: 15px;
+
+        &:hover, &:focus {
+            transform: scale(1.05);
+            background-color: rgb(46, 52, 63);
+        }
+    }
+
     #content {
         display: flex;
         place-items: center;
         flex-direction: column;
-        flex-grow: 5;
-
-        input {
-            transition: 0.5s;
-            text-align: center;
-            height: 50px;
-            width: 150px;
-            margin: 0px 0px 100px 0px;
-            color: white;
-            background-color: $bg-item-color;
-            border: 1px solid white;
-            border-radius: 15px;
-
-            &:hover, :focus {
-                background-color: rgb(46, 52, 63);
-            }
-        }
 
         #title {
             font-size: xx-large;
@@ -56,28 +56,42 @@ html {
         }
     }
 
+    #content-2 {
+        display: flex;
+        place-items: center;
+        flex-direction: column;
+
+            ::placeholder {
+                color: white;
+            }
+
+            #inner-content-2 {
+                margin: 5px 5px 0px 5px;
+            }
+        }
+
     #footer {
+        flex-grow: 1;
         font-size: larger;
         margin: 10px;
     }
 }
 
 .btnClass {
-    transition: 0.25s;
+    transition: 0.5s;
+    text-align: center;
     height: 50px;
-    width: 150px;
-    color: white;    
+    width: 125px;
+    margin: 0px 0px 100px 0px;
+    color: white;
     background-color: $bg-item-color;
     border: 1px solid white;
     border-radius: 15px;
-
-    &:active {
-        background-color: rgb(77, 85, 98);
-    }
 }
 
 .btnSmallClass {
     @extend *;
+    transition: 0.5s;
     height: 50px;
     width: 50px;
     margin: 5px;
@@ -86,6 +100,7 @@ html {
     border-radius: 20px;
 
     &:hover {
+        transform: scale(1.05);
         background-color: rgb(46, 52, 63);
     }
     &:active {

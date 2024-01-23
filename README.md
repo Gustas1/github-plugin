@@ -1,7 +1,7 @@
 # github-plugin
 A github plugin that changes the distance between repositories, adds icons to files on repositories and in tree view
 
-I created this plugin to "prettify" github as I felt repository pages felt a little lacklusture.
+I created this plugin to "prettify" github as I felt repository pages felt a little lacklustre.
 
 <h2>Installation</h2>
 
