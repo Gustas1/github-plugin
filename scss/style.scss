@@ -22,7 +22,7 @@ html {
     color: white;
     background: rgb(2,0,36);
     background: $bg-grad-color;
-    border: 1px solid white;
+    border: 1px solid black;
 
     input {
         transition: 0.5s;
@@ -74,6 +74,16 @@ html {
         flex-grow: 1;
         font-size: larger;
         margin: 10px;
+    }
+
+    #content-3 {
+        display: flex;
+        place-items: center;
+        flex-direction: column;
+
+        #inner-content-3 {
+            margin: 5px 5px 0px 5px;
+        }
     }
 }
 

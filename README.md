@@ -62,4 +62,6 @@ Go to a github repository page and see the icons change to the coresponding file
   </tr>
 </table>
 
+<p>Icons from VSCode-Icons, Link: <a href = "https://github.com/vscode-icons/vscode-icons">https://github.com/vscode-icons/vscode-icons</a></p>
+
 <p>Made by Gustas</p>

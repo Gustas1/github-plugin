@@ -56,18 +56,58 @@ function iconSwap() {
     hashmapExtensions.set(20, ".sql");
     hashmapExtensions.set(21, ".ipynb");
     hashmapExtensions.set(22, ".xml");
-    hashmapExtensions.set(23, ".iml");
     hashmapExtensions.set(23, ".rb");
-    hashmapExtensions.set(23, ".swift");
-    hashmapExtensions.set(24, ".css");
+    hashmapExtensions.set(24, ".swift");
+    hashmapExtensions.set(25, ".css");
+    hashmapExtensions.set(26, ".css.map");
 
+    const hashmapExtensions2 = new Map();
+    hashmapExtensions2.set(1, "c ");
+    hashmapExtensions2.set(2, "js");
+    hashmapExtensions2.set(3, "json");
+    hashmapExtensions2.set(4, "md");
+    hashmapExtensions2.set(5, "py");
+    hashmapExtensions2.set(6, "html");
+    hashmapExtensions2.set(7, "java");
+    hashmapExtensions2.set(8, "cpp");
+    hashmapExtensions2.set(9, "scss");
+    hashmapExtensions2.set(10, "ts");
+    hashmapExtensions2.set(11, "cs");
+    hashmapExtensions2.set(12, "ejs");
+    hashmapExtensions2.set(13, "tsx");
+    hashmapExtensions2.set(14, "cjs");
+    hashmapExtensions2.set(15, "LICENSE");
+    hashmapExtensions2.set(16, "img");
+    hashmapExtensions2.set(17, "cpp");
+    hashmapExtensions2.set(18, "jar");
+    hashmapExtensions2.set(19, "prisma");
+    hashmapExtensions2.set(20, "sql");
+    hashmapExtensions2.set(21, "ipynb");
+    hashmapExtensions2.set(22, "xml");
+    hashmapExtensions2.set(23, "rb");
+    hashmapExtensions2.set(24, "swift");
+    hashmapExtensions2.set(25, "css");
+    hashmapExtensions2.set(26, "css.map");
+    
     for(let i = 0; i < repoLines.length; i++) {
         const img = document.createElement('img');
         img.style.height = "16px";
         img.style.width = "16px";
         for(let k = 0; k <= hashmapExtensions.size; k++) {
             if(repoLines[i].innerHTML.includes(hashmapExtensions.get(k))) {
-                imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions.get(k).slice(1, hashmapExtensions.get(k).length) + ".png");
+                imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions.get(k).slice(1, hashmapExtensions.get(k).length) + ".svg");
+                img.src = imgUrl;
+                const repoLinesItem = repoLines[i].getElementsByTagName('svg');
+                for(let j = 0; j < repoLinesItem.length; j++) {
+                    repoLinesItem[j].replaceWith(img);
+                }
+            }            
+        }
+        
+
+        for(let l = 0; l <= hashmapExtensions2.size; l++) {
+            if(repoLines[i].querySelector('a').title == hashmapExtensions2.get(l)) {
+                imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions2.get(l) + "_folder.svg");
                 img.src = imgUrl;
                 const repoLinesItem = repoLines[i].getElementsByTagName('svg');
                 for(let j = 0; j < repoLinesItem.length; j++) {
@@ -86,7 +126,7 @@ setTimeout(treeIconSwap, 300)
 setInterval(treeIconSwap, 300)
 
 function treeIconSwap() {
-    console.log("item swap")
+    
     const hashmapExtensions = new Map();
     hashmapExtensions.set(1, ".c ");
     hashmapExtensions.set(2, ".js");
@@ -110,10 +150,10 @@ function treeIconSwap() {
     hashmapExtensions.set(20, ".sql");
     hashmapExtensions.set(21, ".ipynb");
     hashmapExtensions.set(22, ".xml");
-    hashmapExtensions.set(23, ".iml");
     hashmapExtensions.set(23, ".rb");
-    hashmapExtensions.set(23, ".swift");
-    hashmapExtensions.set(24, ".css");
+    hashmapExtensions.set(24, ".swift");
+    hashmapExtensions.set(25, ".css");
+    hashmapExtensions.set(26, ".css.map");
 
     const tree = document.querySelectorAll('.PRIVATE_TreeView-item-content');
     for(let i = 0; i < tree.length; i++) {
@@ -123,7 +163,7 @@ function treeIconSwap() {
         for(let k = 0; k <= hashmapExtensions.size; k++) {
             const treeSpan = tree[i].getElementsByTagName('span');
             if(treeSpan[0].innerHTML.includes(hashmapExtensions.get(k))) {
-                imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions.get(k).slice(1, hashmapExtensions.get(k).length) + ".png");
+                imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions.get(k).slice(1, hashmapExtensions.get(k).length) + ".svg");
                 img.src = imgUrl;
                 const treeDiv = tree[i].getElementsByClassName('PRIVATE_TreeView-item-visual');
                 const treeImg = treeDiv[0].getElementsByTagName('svg');
@@ -134,4 +174,3 @@ function treeIconSwap() {
         }
     }
 }
-

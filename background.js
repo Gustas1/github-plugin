@@ -9,4 +9,3 @@ chrome.tabs.onUpdated.addListener(function(my_tabid, changeInfo, tab) {
         files: ["js/event.js"]
     }) 
 })
-

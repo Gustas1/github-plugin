@@ -16,7 +16,7 @@ html *, html .btnSmallClass {
   color: white;
   background: rgb(2, 0, 36);
   background: linear-gradient(0deg, rgb(2, 0, 36) 0%, rgb(61, 61, 61) 100%);
-  border: 1px solid white;
+  border: 1px solid black;
 }
 #container input {
   transition: 0.5s;
@@ -63,6 +63,14 @@ html *, html .btnSmallClass {
   flex-grow: 1;
   font-size: larger;
   margin: 10px;
+}
+#container #content-3 {
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+}
+#container #content-3 #inner-content-3 {
+  margin: 5px 5px 0px 5px;
 }
 
 .btnClass {

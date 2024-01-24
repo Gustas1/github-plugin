@@ -1,14 +1,14 @@
 {
     "manifest_version": 3,
-    "name": "Hello Extensions",
-    "description": "Base Level Extension",
+    "name": "Github Visual Plugin",
+    "description": "A chrome extension that adds icons to github repo pages + more features",
     "version": "1.0",
     "action": {
       "default_popup": "index.html",
       "default_icon": "img/githublogo.png"
     },
 
-    "host_permissions": ["*://*/*"],
+    "host_permissions": ["*://*/*", "https://github.com/*"],
     "permissions": ["scripting", "activeTab", "tabs", "storage"],
     "content_scripts": [
       {
@@ -24,7 +24,9 @@
     },
 
     "web_accessible_resources": [{
-      "resources": ["img/*.png"],
+      "resources": ["img/*.svg"],
       "matches": ["https://github.com/*"]
     }]
   }
+
+  
