@@ -32,11 +32,11 @@ function changePad(pad) {
 
 chrome.storage.local.get(['iconSize']).then((result) => {    
     num = result.iconSize;
-    console.log(num)
     iconSwap(num)
     setTimeout(iconSwap, 200, num);
     setTimeout(iconSwap, 300, num);
     setTimeout(iconSwap, 400, num);
+    setTimeout(iconSwap, 500, num);
 })
 
 function iconSwap(num) {
@@ -44,8 +44,8 @@ function iconSwap(num) {
 
     const hashmapExtensions = new Map();
     hashmapExtensions.set(1, "c ");
-    hashmapExtensions.set(2, "js");
-    hashmapExtensions.set(3, "json");
+    hashmapExtensions.set(2, "git");
+    hashmapExtensions.set(3, "cpp");
     hashmapExtensions.set(4, "md");
     hashmapExtensions.set(5, "py");
     hashmapExtensions.set(6, "html");
@@ -59,19 +59,23 @@ function iconSwap(num) {
     hashmapExtensions.set(14, "cjs");
     hashmapExtensions.set(15, "LICENSE");
     hashmapExtensions.set(16, "img");
-    hashmapExtensions.set(17, "cpp");
-    hashmapExtensions.set(18, "jar");
+    hashmapExtensions.set(17, "js");
+    hashmapExtensions.set(18, "json");
     hashmapExtensions.set(19, "prisma");
     hashmapExtensions.set(20, "sql");
     hashmapExtensions.set(21, "ipynb");
     hashmapExtensions.set(22, "xml");
     hashmapExtensions.set(23, "rb");
     hashmapExtensions.set(24, "swift");
-    hashmapExtensions.set(25, "scss");
+    hashmapExtensions.set(25, "script");
     hashmapExtensions.set(26, "css.map");
-    hashmapExtensions.set(27, "png");
-    hashmapExtensions.set(28, "svg");    
-    hashmapExtensions.set(28, "script");
+    hashmapExtensions.set(27, "src");
+    hashmapExtensions.set(28, "jar");    
+    hashmapExtensions.set(29, "script ");
+    hashmapExtensions.set(30, "public");
+    hashmapExtensions.set(31, "scss");
+    hashmapExtensions.set(32, "png");
+    hashmapExtensions.set(33, "svg");
     
     for(let i = 0; i < repoLines.length; i++) {
         const img = document.createElement('img');
@@ -91,12 +95,30 @@ function iconSwap(num) {
             else if(repoLines[i].querySelector('a').title.includes(hashmapExtensions.get(k))) {
                 imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions.get(k) + "_folder.svg");
                 img.src = imgUrl;
-                const repoLinesItem = repoLines[i].getElementsByTagName('svg');
+                const repoLinesItem = repoLines[i].getElementsByClassName('icon-directory');
                 for(let j = 0; j < repoLinesItem.length; j++) {
                     repoLinesItem[j].replaceWith(img);
                 } 
-            } 
+            }
+
         }
+    }
+
+    const folders = document.querySelectorAll('.icon-directory');
+    for(let i = 0; i < folders.length; i++) {
+        const img = document.createElement('img');
+        img.style.height = num;
+        imgUrl = chrome.runtime.getURL("./img/folder.svg");
+        img.src = imgUrl;
+        folders[i].replaceWith(img);
+    }
+    
+    const img = document.createElement('img');
+    img.style.height = num;
+    img.style.marginRight = "5px";
+    img.src = chrome.runtime.getURL("./img/folder.svg");
+    if(document.querySelector('.Octicon-sc-9kayk9-0')) {
+        document.querySelector('.Octicon-sc-9kayk9-0').replaceWith(img);
     }
 }
 
