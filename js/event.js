@@ -18,7 +18,7 @@ chrome.storage.local.get(["key"]).then((result) => {
             changePad(pd);
         }
     }
-    setTimeout(iconSwap, 200)
+    // setTimeout(iconSwap, 200)
 });
 
 function changePad(pad) {
@@ -30,97 +30,75 @@ function changePad(pad) {
     }
 }
 
-function iconSwap() {
+chrome.storage.local.get(['iconSize']).then((result) => {    
+    num = result.iconSize;
+    console.log(num)
+    iconSwap(num)
+    setTimeout(iconSwap, 200, num);
+    setTimeout(iconSwap, 300, num);
+    setTimeout(iconSwap, 400, num);
+})
+
+function iconSwap(num) {
     const repoLines = document.querySelectorAll('.react-directory-filename-column');
 
     const hashmapExtensions = new Map();
-    hashmapExtensions.set(1, ".c ");
-    hashmapExtensions.set(2, ".js");
-    hashmapExtensions.set(3, ".json");
-    hashmapExtensions.set(4, ".md");
-    hashmapExtensions.set(5, ".py");
-    hashmapExtensions.set(6, ".html");
-    hashmapExtensions.set(7, ".java");
-    hashmapExtensions.set(8, ".cpp");
-    hashmapExtensions.set(9, ".scss");
-    hashmapExtensions.set(10, ".ts");
-    hashmapExtensions.set(11, ".cs");
-    hashmapExtensions.set(12, ".ejs");
-    hashmapExtensions.set(13, ".tsx");
-    hashmapExtensions.set(14, ".cjs");
+    hashmapExtensions.set(1, "c ");
+    hashmapExtensions.set(2, "js");
+    hashmapExtensions.set(3, "json");
+    hashmapExtensions.set(4, "md");
+    hashmapExtensions.set(5, "py");
+    hashmapExtensions.set(6, "html");
+    hashmapExtensions.set(7, "java");
+    hashmapExtensions.set(8, "cpp");
+    hashmapExtensions.set(9, "cs");
+    hashmapExtensions.set(10, "ts");
+    hashmapExtensions.set(11, "css");
+    hashmapExtensions.set(12, "ejs");
+    hashmapExtensions.set(13, "tsx");
+    hashmapExtensions.set(14, "cjs");
     hashmapExtensions.set(15, "LICENSE");
-    hashmapExtensions.set(16, ".git");
-    hashmapExtensions.set(17, ".cpp");
-    hashmapExtensions.set(18, ".jar");
-    hashmapExtensions.set(19, ".prisma");
-    hashmapExtensions.set(20, ".sql");
-    hashmapExtensions.set(21, ".ipynb");
-    hashmapExtensions.set(22, ".xml");
-    hashmapExtensions.set(23, ".rb");
-    hashmapExtensions.set(24, ".swift");
-    hashmapExtensions.set(25, ".css");
-    hashmapExtensions.set(26, ".css.map");
-
-    const hashmapExtensions2 = new Map();
-    hashmapExtensions2.set(1, "c ");
-    hashmapExtensions2.set(2, "js");
-    hashmapExtensions2.set(3, "json");
-    hashmapExtensions2.set(4, "md");
-    hashmapExtensions2.set(5, "py");
-    hashmapExtensions2.set(6, "html");
-    hashmapExtensions2.set(7, "java");
-    hashmapExtensions2.set(8, "cpp");
-    hashmapExtensions2.set(9, "scss");
-    hashmapExtensions2.set(10, "ts");
-    hashmapExtensions2.set(11, "cs");
-    hashmapExtensions2.set(12, "ejs");
-    hashmapExtensions2.set(13, "tsx");
-    hashmapExtensions2.set(14, "cjs");
-    hashmapExtensions2.set(15, "LICENSE");
-    hashmapExtensions2.set(16, "img");
-    hashmapExtensions2.set(17, "cpp");
-    hashmapExtensions2.set(18, "jar");
-    hashmapExtensions2.set(19, "prisma");
-    hashmapExtensions2.set(20, "sql");
-    hashmapExtensions2.set(21, "ipynb");
-    hashmapExtensions2.set(22, "xml");
-    hashmapExtensions2.set(23, "rb");
-    hashmapExtensions2.set(24, "swift");
-    hashmapExtensions2.set(25, "css");
-    hashmapExtensions2.set(26, "css.map");
+    hashmapExtensions.set(16, "img");
+    hashmapExtensions.set(17, "cpp");
+    hashmapExtensions.set(18, "jar");
+    hashmapExtensions.set(19, "prisma");
+    hashmapExtensions.set(20, "sql");
+    hashmapExtensions.set(21, "ipynb");
+    hashmapExtensions.set(22, "xml");
+    hashmapExtensions.set(23, "rb");
+    hashmapExtensions.set(24, "swift");
+    hashmapExtensions.set(25, "scss");
+    hashmapExtensions.set(26, "css.map");
+    hashmapExtensions.set(27, "png");
+    hashmapExtensions.set(28, "svg");    
+    hashmapExtensions.set(28, "script");
     
     for(let i = 0; i < repoLines.length; i++) {
         const img = document.createElement('img');
-        img.style.height = "16px";
-        img.style.width = "16px";
-        for(let k = 0; k <= hashmapExtensions.size; k++) {
-            if(repoLines[i].innerHTML.includes(hashmapExtensions.get(k))) {
-                imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions.get(k).slice(1, hashmapExtensions.get(k).length) + ".svg");
-                img.src = imgUrl;
-                const repoLinesItem = repoLines[i].getElementsByTagName('svg');
-                for(let j = 0; j < repoLinesItem.length; j++) {
-                    repoLinesItem[j].replaceWith(img);
-                }
-            }            
-        }
-        
 
-        for(let l = 0; l <= hashmapExtensions2.size; l++) {
-            if(repoLines[i].querySelector('a').title == hashmapExtensions2.get(l)) {
-                imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions2.get(l) + "_folder.svg");
+        img.style.height = num;
+        // img.style.width = num-2;
+
+        for(let k = 0; k <= hashmapExtensions.size; k++) {
+            if(repoLines[i].querySelector('a').title.includes("." + hashmapExtensions.get(k))) {
+                imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions.get(k) + ".svg");
                 img.src = imgUrl;
                 const repoLinesItem = repoLines[i].getElementsByTagName('svg');
                 for(let j = 0; j < repoLinesItem.length; j++) {
                     repoLinesItem[j].replaceWith(img);
-                }
+                }   
             }
+            else if(repoLines[i].querySelector('a').title.includes(hashmapExtensions.get(k))) {
+                imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions.get(k) + "_folder.svg");
+                img.src = imgUrl;
+                const repoLinesItem = repoLines[i].getElementsByTagName('svg');
+                for(let j = 0; j < repoLinesItem.length; j++) {
+                    repoLinesItem[j].replaceWith(img);
+                } 
+            } 
         }
     }
 }
-
-setTimeout(iconSwap, 300)
-setTimeout(iconSwap, 400)
-setTimeout(iconSwap, 500)
 
 setTimeout(treeIconSwap, 300)
 setInterval(treeIconSwap, 300)
