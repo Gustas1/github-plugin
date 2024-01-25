@@ -15,8 +15,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
     document.querySelector('#revert').addEventListener('click', function() {
         paddingNumber = "1.25";
-        chrome.storage.local.set({ key: paddingNumber }).then(() => {
-        });
+        chrome.storage.local.set({ key: paddingNumber });
         chrome.scripting.executeScript({
             target: {tabId: my_tabid},
             files: ["js/event.js"]
@@ -25,8 +24,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
     document.getElementById('help').addEventListener('click', function() {
         paddingNumber = document.getElementById('paddingInput').value;
-        chrome.storage.local.set({ key: paddingNumber }).then(() => {
-        });
+        chrome.storage.local.set({ key: paddingNumber })
         chrome.scripting.executeScript({
             target: {tabId: my_tabid},
             files: ["js/event.js"]
@@ -43,21 +41,13 @@ document.addEventListener('DOMContentLoaded', function(event) {
         setPopupBG(bg);
     });
 
-    document.getElementById('iconSize1').addEventListener('click', function() {
-        console.log("1")
+    document.getElementById('iconSizeRevert').addEventListener('click', function() {
         num = "16px";
         chrome.storage.local.set({ iconSize: num });
-    });  
+    }); 
 
-    document.getElementById('iconSize2').addEventListener('click', function() {
-        console.log("2")
-        num = "20px";
+    document.getElementById('iconSizeEnter').addEventListener('click', function() {
+        num = document.getElementById('iconSizeInput').value;
         chrome.storage.local.set({ iconSize: num });
-    });
-
-    document.getElementById('iconSize3').addEventListener('click', function() {
-        console.log("3")
-        num = "24px";
-        chrome.storage.local.set({ iconSize: num });
-    });
+    }); 
 }) 
