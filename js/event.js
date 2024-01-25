@@ -39,6 +39,8 @@ chrome.storage.local.get(['iconSize']).then((result) => {
     setTimeout(iconSwap, 500, num);
     setTimeout(iconSwap, 600, num);
     setTimeout(iconSwap, 1000, num);
+    // setInterval(iconSwap, 300, num);
+    treeIconSwap(num);
 })
 
 function iconSwap(num) {
@@ -153,55 +155,106 @@ function iconSwap(num) {
     }
 }
 
-setTimeout(treeIconSwap, 300)
-setInterval(treeIconSwap, 300)
 
-function treeIconSwap() {
+
+function treeIconSwap(num) {
     
     const hashmapExtensions = new Map();
-    hashmapExtensions.set(1, ".c ");
-    hashmapExtensions.set(2, ".js");
-    hashmapExtensions.set(3, ".json");
-    hashmapExtensions.set(4, ".md");
-    hashmapExtensions.set(5, ".py");
-    hashmapExtensions.set(6, ".html");
-    hashmapExtensions.set(7, ".java");
-    hashmapExtensions.set(8, ".cpp");
-    hashmapExtensions.set(9, ".scss");
-    hashmapExtensions.set(10, ".ts");
-    hashmapExtensions.set(11, ".cs");
-    hashmapExtensions.set(12, ".ejs");
-    hashmapExtensions.set(13, ".tsx");
-    hashmapExtensions.set(14, ".cjs");
+    hashmapExtensions.set(1, "c ");
+    hashmapExtensions.set(2, "git");
+    hashmapExtensions.set(3, "cpp");
+    hashmapExtensions.set(4, "test");
+    hashmapExtensions.set(5, "py");
+    hashmapExtensions.set(6, "html");
+    hashmapExtensions.set(7, "java");
+    hashmapExtensions.set(8, "cpp");
+    hashmapExtensions.set(9, "cs");
+    hashmapExtensions.set(10, "ts");
+    hashmapExtensions.set(11, "css");
+    hashmapExtensions.set(12, "ejs");
+    hashmapExtensions.set(13, "tsx");
+    hashmapExtensions.set(14, "cjs");
     hashmapExtensions.set(15, "LICENSE");
-    hashmapExtensions.set(16, ".git");
-    hashmapExtensions.set(17, ".cpp");
-    hashmapExtensions.set(18, ".jar");
-    hashmapExtensions.set(19, ".prisma");
-    hashmapExtensions.set(20, ".sql");
-    hashmapExtensions.set(21, ".ipynb");
-    hashmapExtensions.set(22, ".xml");
-    hashmapExtensions.set(23, ".rb");
-    hashmapExtensions.set(24, ".swift");
-    hashmapExtensions.set(25, ".css");
-    hashmapExtensions.set(26, ".css.map");
+    hashmapExtensions.set(16, "img");
+    hashmapExtensions.set(17, "script");
+    hashmapExtensions.set(18, "js");
+    hashmapExtensions.set(19, "prisma");
+    hashmapExtensions.set(20, "sql");
+    hashmapExtensions.set(21, "ipynb");
+    hashmapExtensions.set(22, "xml");
+    hashmapExtensions.set(23, "rb");
+    hashmapExtensions.set(24, "swift");
+    hashmapExtensions.set(25, "json");
+    hashmapExtensions.set(26, "css.map");
+    hashmapExtensions.set(27, "src");
+    hashmapExtensions.set(28, "jar");    
+    hashmapExtensions.set(29, "public");
+    hashmapExtensions.set(30, "scss");
+    hashmapExtensions.set(31, "pt");
+    hashmapExtensions.set(32, "bat");
+    hashmapExtensions.set(33, "view");
+    hashmapExtensions.set(34, "page");
+    hashmapExtensions.set(35, "shader");
+    hashmapExtensions.set(36, "notebook");
+    hashmapExtensions.set(37, "model");
+    hashmapExtensions.set(38, "template");
+    hashmapExtensions.set(39, "util");
+    hashmapExtensions.set(40, "md");
+    hashmapExtensions.set(41, "rs");
+    hashmapExtensions.set(42, "php");
+    hashmapExtensions.set(43, "nim");
+    hashmapExtensions.set(44, "ini");
+    hashmapExtensions.set(45, "pug");
+    hashmapExtensions.set(46, "go");
+    hashmapExtensions.set(47, "vue");
+    hashmapExtensions.set(48, "graphql");
+    hashmapExtensions.set(49, "toml");
+    hashmapExtensions.set(50, "compute");
+    hashmapExtensions.set(51, "yml");
+    hashmapExtensions.set(52, "yaml");
+    hashmapExtensions.set(53, "style");
+    hashmapExtensions.set(54, "mjs");
+    hashmapExtensions.set(55, "app");
+    hashmapExtensions.set(56, "component");
+    hashmapExtensions.set(57, "gif");
+    hashmapExtensions.set(58, "icns");
+    hashmapExtensions.set(59, "jpeg");
+    hashmapExtensions.set(60, "jpg");
+    hashmapExtensions.set(61, "png");
+    hashmapExtensions.set(62, "svg");
 
     const tree = document.querySelectorAll('.PRIVATE_TreeView-item-content');
-    for(let i = 0; i < tree.length; i++) {
-        const img = document.createElement('img');
-        img.style.height = "16px";
-        img.style.width = "16px";
-        for(let k = 0; k <= hashmapExtensions.size; k++) {
-            const treeSpan = tree[i].getElementsByTagName('span');
-            if(treeSpan[0].innerHTML.includes(hashmapExtensions.get(k))) {
-                imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions.get(k).slice(1, hashmapExtensions.get(k).length) + ".svg");
-                img.src = imgUrl;
-                const treeDiv = tree[i].getElementsByClassName('PRIVATE_TreeView-item-visual');
-                const treeImg = treeDiv[0].getElementsByTagName('svg');
-                for(let j = 0; j < treeImg.length; j++) {
-                    treeImg[j].replaceWith(img);
+    if(tree.length > 0) {
+        for(let i = 0; i < tree.length; i++) {
+
+            const img = document.createElement('img');
+            img.style.height = num;
+            img.style.marginRight = "0px";
+
+            for(let k = 0; k <= hashmapExtensions.size; k++) {
+                const treeSpan = tree[i].getElementsByTagName('span');
+
+                if(treeSpan[0].innerHTML.includes("." + hashmapExtensions.get(k))) {
+
+                    imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions.get(k) + ".svg");
+                    img.src = imgUrl;
+                    const treeDiv = tree[i].getElementsByClassName('PRIVATE_TreeView-item-visual');
+                    for(let j = 0; j < treeDiv.length; j++) {
+                        console.log(tree[i])
+                        console.log(img.src)
+                        treeDiv[j].replaceWith(img);
+                    }
+                }   
+                else if(treeSpan[0].innerHTML.includes(hashmapExtensions.get(k)) || treeSpan[0].innerHTML.includes(hashmapExtensions.get(k) + "s")) {
+                    imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions.get(k) + "_folder.svg");
+                    img.src = imgUrl;
+                    const treeDiv = tree[i].getElementsByClassName('PRIVATE_TreeView-item-visual');
+                    for(let j = 0; j < treeDiv.length; j++) {
+                        treeDiv[j].replaceWith(img);
+                    }
                 }
             }
         }
     }
 }
+
