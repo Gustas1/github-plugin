@@ -41,6 +41,7 @@ chrome.storage.local.get(['iconSize']).then((result) => {
     setTimeout(iconSwap, 1000, num);
     // setInterval(iconSwap, 300, num);
     treeIconSwap(num);
+    setTimeout(treeIconSwap, 300, num);
 })
 
 function iconSwap(num) {
@@ -235,18 +236,29 @@ function treeIconSwap(num) {
                 const treeSpan = tree[i].getElementsByTagName('span');
 
                 if(treeSpan[0].innerHTML.includes("." + hashmapExtensions.get(k))) {
-
+                    console.log(treeSpan[0].innerText)
                     imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions.get(k) + ".svg");
+                    if(treeSpan[0].innerText.slice(treeSpan[0].innerText.length-4, treeSpan[0].innerText.length) == ".css") {
+                        imgUrl = chrome.runtime.getURL("./img/" + 'css' + ".svg");
+                    }
+                    else if(treeSpan[0].innerText.slice(treeSpan[0].innerText.length-8, treeSpan[0].innerText.length) == ".css.map") {
+                        imgUrl = chrome.runtime.getURL("./img/" + 'css.map' + ".svg");
+                    }
+                    else if(treeSpan[0].innerText.slice(treeSpan[0].innerText.length-5, treeSpan[0].innerText.length) == ".json") {
+                        imgUrl = chrome.runtime.getURL("./img/" + 'json' + ".svg");
+                    }
                     img.src = imgUrl;
                     const treeDiv = tree[i].getElementsByClassName('PRIVATE_TreeView-item-visual');
                     for(let j = 0; j < treeDiv.length; j++) {
-                        console.log(tree[i])
-                        console.log(img.src)
                         treeDiv[j].replaceWith(img);
                     }
+                    break
                 }   
                 else if(treeSpan[0].innerHTML.includes(hashmapExtensions.get(k)) || treeSpan[0].innerHTML.includes(hashmapExtensions.get(k) + "s")) {
                     imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions.get(k) + "_folder.svg");
+                    if(treeSpan[0].innerText == "script" || treeSpan[0].innerText == "scripts") {
+                        imgUrl = chrome.runtime.getURL("./img/" + 'script' + "_folder.svg");
+                    }
                     img.src = imgUrl;
                     const treeDiv = tree[i].getElementsByClassName('PRIVATE_TreeView-item-visual');
                     for(let j = 0; j < treeDiv.length; j++) {
