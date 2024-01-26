@@ -11,11 +11,10 @@ html *, html .btnSmallClass {
   display: flex;
   flex-direction: column;
   text-align: center;
-  height: 400px;
+  height: auto;
   width: 260px;
   color: white;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(0deg, rgb(2, 0, 36) 0%, rgb(61, 61, 61) 100%);
+  background: linear-gradient(0deg, rgb(2, 0, 36) 0%, rgb(61, 61, 61) 100%), rgb(2, 0, 36);
   border: 1px solid black;
 }
 #container input {
@@ -49,12 +48,6 @@ html *, html .btnSmallClass {
   display: flex;
   place-items: center;
   flex-direction: column;
-}
-#container #content-2 ::-moz-placeholder {
-  color: white;
-}
-#container #content-2 ::placeholder {
-  color: white;
 }
 #container #content-2 #inner-content-2 {
   margin: 5px 5px 0px 5px;

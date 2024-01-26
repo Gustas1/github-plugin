@@ -17,11 +17,10 @@ html {
     display: flex;
     flex-direction: column;
     text-align: center;
-    height: 400px;
+    height: auto;
     width: 260px;
     color: white;
-    background: rgb(2,0,36);
-    background: $bg-grad-color;
+    background: $bg-grad-color, rgb(2,0,36);
     border: 1px solid black;
 
     input {
@@ -60,10 +59,6 @@ html {
         display: flex;
         place-items: center;
         flex-direction: column;
-
-            ::placeholder {
-                color: white;
-            }
 
             #inner-content-2 {
                 margin: 5px 5px 0px 5px;
