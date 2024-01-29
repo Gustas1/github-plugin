@@ -32,37 +32,24 @@ html *, html .btnSmallClass {
   transform: scale(1.05);
   background-color: rgb(46, 52, 63);
 }
-#container #content {
-  display: flex;
-  place-items: center;
-  flex-direction: column;
-}
-#container #content #title {
+#container .header h1 {
   font-size: xx-large;
   margin: 30px 0px 0px 0px;
 }
-#container #content #inner-content {
-  margin: 20px 5px 0px 5px;
-}
-#container #content-2 {
+#container .normal-div {
   display: flex;
   place-items: center;
   flex-direction: column;
 }
-#container #content-2 #inner-content-2 {
-  margin: 5px 5px 0px 5px;
+#container .normal-div:nth-child(2) {
+  margin: 20px 5px 0px 5px;
 }
-#container #footer {
+#container .normal-div:last-child {
   flex-grow: 1;
   font-size: larger;
   margin: 10px;
 }
-#container #content-3 {
-  display: flex;
-  place-items: center;
-  flex-direction: column;
-}
-#container #content-3 #inner-content-3 {
+#container .inner-normal-div {
   margin: 5px 5px 0px 5px;
 }
 
@@ -70,12 +57,17 @@ html *, html .btnSmallClass {
   transition: 0.5s;
   text-align: center;
   height: 50px;
-  width: 125px;
-  margin: 0px 0px 100px 0px;
+  width: 100px;
   color: white;
   background-color: rgb(28, 32, 39);
   border: 1px solid white;
-  border-radius: 15px;
+  border-radius: 20px;
+}
+.btnClass:hover {
+  transform: scale(1.05);
+}
+.btnClass:active {
+  background-color: rgb(13, 17, 23);
 }
 
 .btnSmallClass {
@@ -93,4 +85,12 @@ html *, html .btnSmallClass {
 }
 .btnSmallClass:active {
   background-color: rgb(28, 32, 39);
+}
+
+.shape {
+  transition: 1s;
+  height: 35px;
+  width: 35px;
+  background-color: white;
+  border-radius: 50%;
 }/*# sourceMappingURL=style.css.map */

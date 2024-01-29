@@ -40,45 +40,31 @@ html {
         }
     }
 
-    #content {
+    .header {
+        h1 {
+            font-size: xx-large;
+            margin: 30px 0px 0px 0px;    
+        }
+    }
+
+    .normal-div {
         display: flex;
         place-items: center;
         flex-direction: column;
-
-        #title {
-            font-size: xx-large;
-            margin: 30px 0px 0px 0px;
-        }
-
-        #inner-content {
+        
+        &:nth-child(2) {
             margin: 20px 5px 0px 5px;
         }
+
+        &:last-child {
+            flex-grow: 1;
+            font-size: larger;
+            margin: 10px;
+        }
     }
 
-    #content-2 {
-        display: flex;
-        place-items: center;
-        flex-direction: column;
-
-            #inner-content-2 {
-                margin: 5px 5px 0px 5px;
-            }
-        }
-
-    #footer {
-        flex-grow: 1;
-        font-size: larger;
-        margin: 10px;
-    }
-
-    #content-3 {
-        display: flex;
-        place-items: center;
-        flex-direction: column;
-
-        #inner-content-3 {
-            margin: 5px 5px 0px 5px;
-        }
+    .inner-normal-div {
+        margin: 5px 5px 0px 5px;
     }
 }
 
@@ -86,12 +72,18 @@ html {
     transition: 0.5s;
     text-align: center;
     height: 50px;
-    width: 125px;
-    margin: 0px 0px 100px 0px;
+    width: 100px;
     color: white;
     background-color: $bg-item-color;
     border: 1px solid white;
-    border-radius: 15px;
+    border-radius: 20px;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+    &:active {
+        background-color: $bg-color;
+    }
 }
 
 .btnSmallClass {
@@ -111,4 +103,12 @@ html {
     &:active {
         background-color: $bg-item-color;
     }
+}
+
+.shape {
+    transition: 1s;
+    height: 35px;
+    width: 35px;
+    background-color: white;
+    border-radius: 50%;
 }
