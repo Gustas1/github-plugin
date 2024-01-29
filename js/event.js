@@ -32,16 +32,25 @@ function changePad(pad) {
 
 chrome.storage.local.get(['iconSize']).then((result) => {    
     num = result.iconSize;
-    iconSwap(num)
-    setTimeout(iconSwap, 200, num);
-    setTimeout(iconSwap, 300, num);
-    setTimeout(iconSwap, 400, num);
-    setTimeout(iconSwap, 500, num);
-    setTimeout(iconSwap, 600, num);
-    setTimeout(iconSwap, 1000, num);
-    // setInterval(iconSwap, 300, num);
-    treeIconSwap(num);
-    setTimeout(treeIconSwap, 300, num);
+    chrome.storage.local.get(['runIcon']).then((result) => {
+        run = result.runIcon;
+        console.log(run)
+        if(run == true) {
+            iconSwap(num)
+            setTimeout(iconSwap, 200, num);
+            setTimeout(iconSwap, 300, num);
+            setTimeout(iconSwap, 400, num);
+            setTimeout(iconSwap, 500, num);
+            setTimeout(iconSwap, 600, num);
+            setTimeout(iconSwap, 1000, num);
+            // setInterval(iconSwap, 300, num);
+            treeIconSwap(num);
+            setTimeout(treeIconSwap, 300, num);
+        }
+    })
+    
+    
+    
 })
 
 function iconSwap(num) {

@@ -20,7 +20,10 @@ html {
     height: auto;
     width: 260px;
     color: white;
-    background: $bg-grad-color, rgb(2,0,36);
+    // background: $bg-grad-color, rgb(2,0,36);
+    background-image: url("../img/sc_beach_2.gif    ");
+    background-repeat: no-repeat;
+    background-size: cover;
     border: 1px solid black;
 
     input {
@@ -53,7 +56,7 @@ html {
         flex-direction: column;
         
         &:nth-child(2) {
-            margin: 20px 5px 0px 5px;
+            margin: 10px 5px 0px 5px;
         }
 
         &:last-child {
@@ -76,7 +79,7 @@ html {
     color: white;
     background-color: $bg-item-color;
     border: 1px solid white;
-    border-radius: 20px;
+    border-radius: 25px;
 
     &:hover {
         transform: scale(1.05);
@@ -106,9 +109,13 @@ html {
 }
 
 .shape {
-    transition: 1s;
+    transition: 0.5s;
     height: 35px;
     width: 35px;
-    background-color: white;
+    background-color: $bg-item-color;
     border-radius: 50%;
+}
+
+.active {
+    background-color: blue;
 }

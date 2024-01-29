@@ -49,5 +49,57 @@ document.addEventListener('DOMContentLoaded', function(event) {
     document.getElementById('iconSizeEnter').addEventListener('click', function() {
         num = document.getElementById('iconSizeInput').value;
         chrome.storage.local.set({ iconSize: num });
-    }); 
-}) 
+    });
+
+    let int = 0;
+
+    chrome.storage.local.get(['int']).then((result) => {
+        int1 = result.int;
+        if(isNaN(int1)) {
+            int1 = 0;
+        }
+        marginLeft = "";
+        chrome.storage.local.get(['marginShape']).then((result) => {
+            marginLeft = result.marginShape;
+            if(int1 % 2 == 0) {
+                document.getElementById('shape').style.marginLeft = "57.5px";
+                document.getElementById('iconToggle').style.backgroundColor = "green";
+            } else {
+                document.getElementById('shape').style.marginLeft = "5px";
+                document.getElementById('iconToggle').style.backgroundColor = "white";
+            }
+        });     
+    });
+     
+    document.getElementById('iconToggle').addEventListener('click', function() {
+        runIcon = "";
+        marginLeft = "0px";
+        if(int1 % 2 == 0) {
+            chrome.storage.local.get(['marginShape']).then((result) => {
+                marginLeft = result.marginShape;
+                document.getElementById('shape').style.marginLeft = marginLeft;
+                document.getElementById('iconToggle').style.backgroundColor = "white";
+                chrome.storage.local.set({ marginShape : "57.5px"});
+            })
+            runIcon = false;
+            chrome.storage.local.set({ runIcon: runIcon});
+            int1++;
+        } else {
+            chrome.storage.local.get(['marginShape']).then((result) => {
+                marginLeft = result.marginShape;
+                document.getElementById('shape').style.marginLeft = marginLeft;
+                document.getElementById('iconToggle').style.backgroundColor = "green";
+                chrome.storage.local.set({ marginShape : "5px"});
+            })
+            runIcon = true;
+            chrome.storage.local.set({ runIcon: runIcon});
+            int1++;
+        }
+        chrome.scripting.executeScript({
+            target: {tabId: my_tabid},
+            files: ["js/event.js"]
+        });
+        chrome.storage.local.set({ int : int1});
+    });
+});
+

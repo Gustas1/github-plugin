@@ -14,7 +14,9 @@ html *, html .btnSmallClass {
   height: auto;
   width: 260px;
   color: white;
-  background: linear-gradient(0deg, rgb(2, 0, 36) 0%, rgb(61, 61, 61) 100%), rgb(2, 0, 36);
+  background-image: url("../img/sc_beach_2.gif    ");
+  background-repeat: no-repeat;
+  background-size: cover;
   border: 1px solid black;
 }
 #container input {
@@ -42,7 +44,7 @@ html *, html .btnSmallClass {
   flex-direction: column;
 }
 #container .normal-div:nth-child(2) {
-  margin: 20px 5px 0px 5px;
+  margin: 10px 5px 0px 5px;
 }
 #container .normal-div:last-child {
   flex-grow: 1;
@@ -61,7 +63,7 @@ html *, html .btnSmallClass {
   color: white;
   background-color: rgb(28, 32, 39);
   border: 1px solid white;
-  border-radius: 20px;
+  border-radius: 25px;
 }
 .btnClass:hover {
   transform: scale(1.05);
@@ -88,9 +90,13 @@ html *, html .btnSmallClass {
 }
 
 .shape {
-  transition: 1s;
+  transition: 0.5s;
   height: 35px;
   width: 35px;
-  background-color: white;
+  background-color: rgb(28, 32, 39);
   border-radius: 50%;
+}
+
+.active {
+  background-color: blue;
 }/*# sourceMappingURL=style.css.map */
