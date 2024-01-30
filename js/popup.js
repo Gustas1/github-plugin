@@ -22,23 +22,13 @@ document.addEventListener('DOMContentLoaded', function(event) {
         });
     });
 
-    document.getElementById('help').addEventListener('click', function() {
+    document.getElementById('setPadding').addEventListener('click', function() {
         paddingNumber = document.getElementById('paddingInput').value;
         chrome.storage.local.set({ key: paddingNumber })
         chrome.scripting.executeScript({
             target: {tabId: my_tabid},
             files: ["js/event.js"]
         });
-    });
-
-    document.getElementById('setBG').addEventListener('click', function() {
-        bg = document.getElementById('bgInput').value;
-        setPopupBG(bg);
-    });
-
-    document.getElementById('revert').addEventListener('click', function() {
-        bg = "linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(61,61,61,1) 100%), rgb(46, 52, 63)";
-        setPopupBG(bg);
     });
 
     document.getElementById('iconSizeRevert').addEventListener('click', function() {
@@ -66,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 document.getElementById('iconToggle').style.backgroundColor = "green";
             } else {
                 document.getElementById('shape').style.marginLeft = "5px";
-                document.getElementById('iconToggle').style.backgroundColor = "white";
+                document.getElementById('iconToggle').style.backgroundColor = "rgb(28, 32, 39)";
             }
         });     
     });
@@ -78,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
             chrome.storage.local.get(['marginShape']).then((result) => {
                 marginLeft = result.marginShape;
                 document.getElementById('shape').style.marginLeft = marginLeft;
-                document.getElementById('iconToggle').style.backgroundColor = "white";
+                document.getElementById('iconToggle').style.backgroundColor = "rgb(28, 32, 39)";
                 chrome.storage.local.set({ marginShape : "57.5px"});
             })
             runIcon = false;

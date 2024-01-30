@@ -34,7 +34,7 @@ chrome.storage.local.get(['iconSize']).then((result) => {
     num = result.iconSize;
     chrome.storage.local.get(['runIcon']).then((result) => {
         run = result.runIcon;
-        console.log(run)
+        console.log(run);
         if(run == true) {
             iconSwap(num)
             setTimeout(iconSwap, 200, num);
@@ -47,11 +47,8 @@ chrome.storage.local.get(['iconSize']).then((result) => {
             treeIconSwap(num);
             setTimeout(treeIconSwap, 300, num);
         }
-    })
-    
-    
-    
-})
+    });
+});
 
 function iconSwap(num) {
     const repoLines = document.querySelectorAll('.react-directory-filename-column');
@@ -115,10 +112,13 @@ function iconSwap(num) {
     hashmapExtensions.set(56, "component");
     hashmapExtensions.set(57, "gif");
     hashmapExtensions.set(58, "icns");
-    hashmapExtensions.set(59, "jpeg");
-    hashmapExtensions.set(60, "jpg");
-    hashmapExtensions.set(61, "png");
-    hashmapExtensions.set(62, "svg");
+    hashmapExtensions.set(59, "vscode");
+    hashmapExtensions.set(60, "package");
+    hashmapExtensions.set(61, "github");
+    hashmapExtensions.set(62, "jpeg");
+    hashmapExtensions.set(63, "jpg");
+    hashmapExtensions.set(64, "png");
+    hashmapExtensions.set(65, "svg");
     
     for(let i = 0; i < repoLines.length; i++) {
         const img = document.createElement('img');
@@ -129,6 +129,12 @@ function iconSwap(num) {
         for(let k = 0; k <= hashmapExtensions.size; k++) {
             if(repoLines[i].querySelector('a').title.includes("." + hashmapExtensions.get(k))) {
                 imgUrl = chrome.runtime.getURL("./img/" + hashmapExtensions.get(k) + ".svg");
+                if(repoLines[i].querySelector('a').title.includes('.vscode')) {
+                    imgUrl = chrome.runtime.getURL("./img/vscode_folder.svg");
+                }
+                else if(repoLines[i].querySelector('a').title.includes('.github')) {
+                    imgUrl = chrome.runtime.getURL("./img/github_folder.svg");
+                }
                 img.src = imgUrl;
                 const repoLinesItem = repoLines[i].getElementsByTagName('svg');
                 for(let j = 0; j < repoLinesItem.length; j++) {
@@ -142,8 +148,7 @@ function iconSwap(num) {
                 for(let j = 0; j < repoLinesItem.length; j++) {
                     repoLinesItem[j].replaceWith(img);
                 } 
-            } 
-           
+            }
         }
     }
 
