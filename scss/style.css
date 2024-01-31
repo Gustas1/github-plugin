@@ -34,14 +34,14 @@ html *, html .btnSmallClass {
   transform: scale(1.05);
   background-color: rgb(46, 52, 63);
 }
-#container .header h1 {
-  font-size: xx-large;
-  margin: 30px 0px 0px 0px;
-}
 #container .normal-div {
   display: flex;
   place-items: center;
   flex-direction: column;
+}
+#container .normal-div:first-child h1 {
+  font-size: xx-large;
+  margin: 30px 0px 0px 0px;
 }
 #container .normal-div:nth-child(2) {
   margin: 10px 5px 0px 5px;
@@ -58,10 +58,11 @@ html *, html .btnSmallClass {
 .btnClass {
   transition: 0.5s;
   text-align: center;
-  height: 50px;
+  height: px;
   width: 100px;
   color: white;
   background-color: rgb(28, 32, 39);
+  margin: 0px 5px 5px 5px;
   border: 1px solid white;
   border-radius: 25px;
 }
@@ -93,10 +94,6 @@ html *, html .btnSmallClass {
   transition: 0.5s;
   height: 35px;
   width: 35px;
-  background-color: rgb(28, 32, 39);
+  background-color: white;
   border-radius: 50%;
-}
-
-.active {
-  background-color: blue;
 }/*# sourceMappingURL=style.css.map */
