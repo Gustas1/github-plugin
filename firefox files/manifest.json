@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Hello Extensions",
+    "description": "Base Level Extension",
+    "version": "1.0",
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": "img/githublogo.png"
+    },
+
+    "host_permissions": ["*://*/*"],
+    "permissions": ["scripting", "activeTab", "tabs", "storage"],
+    "content_scripts": [
+      {
+        "js": ["./js/popup.js", "./js/event.js"],
+        "matches": [
+          "https://github.com/*"
+        ] 
+      }
+    ],
+
+    "background": {
+      "scripts": ["background.js"]
+    },
+
+    "web_accessible_resources": [{
+      "resources": ["img/*.png"],
+      "matches": ["https://github.com/*"]
+    }]
+  }
+
+  
